@@ -17,9 +17,14 @@ const Hero = () => {
     const [metalThickness, setMetalThickness] = useState(thickness[0]);
     const handleChange = (value) => setSelectedPanel(value);
     const handleMetal = (value) => setMetal(value);
-
+    const [square, setSquare] = useState(0)
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        setSquare(formData.get('width') * formData.get('height'));
+    }
     return (
-        <>
+        <form onSubmit={submitHandler}>
 
             <label
                 id="listbox-label"
@@ -27,7 +32,7 @@ const Hero = () => {
             >
                 Характеристика
             </label>
-            <form className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
 
                 <Selector handleChange={handleChange} options={countries} selectedPanel={selectedPanel}/>
                 <Selector handleChange={handleMetal} options={metal} selectedPanel={selectMetal}/>
@@ -63,6 +68,7 @@ const Hero = () => {
                         <input
                             autoFocus={true}
                             type="number"
+                            name={"width"}
                             id="simple-search"
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                             placeholder="длина"
@@ -81,6 +87,7 @@ const Hero = () => {
                         <input
                             autoFocus={true}
                             type="number"
+                            name={"height"}
                             id="simple-search"
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                             placeholder="высота"
@@ -88,7 +95,7 @@ const Hero = () => {
                         />
                     </div>
                 </div>
-            </form>
+            </div>
 
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row-reverse">
@@ -155,16 +162,20 @@ const Hero = () => {
                             className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-none text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">калькулятор
                         </button>
                         <button
-                            type="button"
+                            type="submit"
                             onClick={() => setOpen(true)}
                             className="focus:outline-none text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-yellow-300 font-medium rounded-none text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
                             Считать цена
                         </button>
-                        <Contact open={open} close={() => setOpen(false)} />
+                        <Contact
+                            open={open}
+                            square={square}
+                            close={() => setOpen(false)}
+                        />
                     </div>
                 </div>
             </div>
-        </>
+        </form>
     );
 };
 

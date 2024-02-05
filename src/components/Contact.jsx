@@ -1,8 +1,8 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {AiFillEdit} from "react-icons/ai";
 
-export default function Contact({open, close}) {
+export default function Contact({open, close, square}) {
     const cancelButtonRef = useRef(null)
 
     return (
@@ -34,8 +34,8 @@ export default function Contact({open, close}) {
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="sm:flex sm:items-start">
-                                        <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
-                                            <AiFillEdit className="h-6 w-6 text-red-600" aria-hidden="true" />
+                                        <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-black sm:mx-0 sm:h-10 sm:w-10">
+                                            <AiFillEdit className="h-6 w-6 text-[#DE5801]" aria-hidden="true" />
                                         </div>
                                         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                             <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
@@ -48,7 +48,12 @@ export default function Contact({open, close}) {
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
                                                     Здравствуйте, мы очень рады, что выбрали нас!<br/>
-                                                    В поиске приключений? Мы обучили почтовых голубей для тех, кто предпочитает уникальные способы связи. Прикрепите свое сообщение к лапке голубя, пожелайте ему удачи, и посмотрите, как ваши слова поднимаются ввысь. Шутим... но, может быть, вам это приглянется
+                                                    <b>площадь твоего дома, который ты выбрал,
+                                                        составляет {square} квадратных метров</b> <br/>
+                                                    В поиске приключений? Мы обучили почтовых голубей для тех, кто
+                                                    предпочитает уникальные способы связи. Прикрепите свое сообщение к
+                                                    лапке голубя, пожелайте ему удачи, и посмотрите, как ваши слова
+                                                    поднимаются ввысь. Шутим... но, может быть, вам это приглянется
                                                 </p>
                                             </div>
                                         </div>
@@ -58,7 +63,7 @@ export default function Contact({open, close}) {
                                     <a href={"tel:+998770003232"}>
                                         <button
                                             type="button"
-                                            className="inline-flex w-full justify-center rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 sm:ml-3 sm:w-auto"
+                                            className="inline-flex w-full justify-center rounded-md bg-[#DE5801] px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-yellow-500 sm:ml-3 sm:w-auto"
                                             onClick={close}
                                         >
                                             свяжитесь с нами
