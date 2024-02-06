@@ -7,12 +7,12 @@ Source: https://sketchfab.com/3d-models/hangar-e7e3cc07557b47c29cee79e56e6c3276
 Title: Hangar
 */
 
-import React, {useMemo, useRef} from 'react'
+import React, {useMemo} from 'react'
 import { useGLTF } from '@react-three/drei'
 import {SpotLight} from "three";
 
 export function Model(props) {
-  const spotlight = useMemo(() => new SpotLight('#fff'), []);
+  useMemo(() => new SpotLight('#fff'), []);
   const { nodes, materials } = useGLTF('/model/scene.gltf')
   return (
     <group {...props} dispose={null} scale={.1}>
@@ -20,13 +20,13 @@ export function Model(props) {
         <group rotation={[-Math.PI, 0, 0]} scale={0.01}>
           <mesh geometry={nodes.Hangar_2_0.geometry} material={materials.material} />
           <mesh geometry={nodes.Hangar_3_0.geometry} material={materials.material_1} />
-          <mesh geometry={nodes['Hangar_Siding_green-2_0'].geometry} material={materials['Siding_white_baseColor']} />
-          <mesh geometry={nodes.Hangar_Siding_green_0.geometry} material={materials.Siding_green} />
+          <mesh geometry={nodes['Hangar_Siding_green-2_0'].geometry} material={materials['Siding_white_baseColor']}  material-color={"#9d9d9d"} />
+          <mesh geometry={nodes.Hangar_Siding_green_0.geometry} material={materials.Siding_green}  material-color={"black"}/>
           <mesh geometry={nodes.Hangar_Siding_white_0.geometry} material={materials.Siding_white} material-color={props.wallColor} />
-          <mesh geometry={nodes['Hangar_Roof-6a_0'].geometry} material={materials['Roof-6a']} />
-          <mesh geometry={nodes['Hangar_Siding_green-3_0'].geometry} material={materials['Siding_green-3']} />
+          <mesh geometry={nodes['Hangar_Roof-6a_0'].geometry} material={materials['Roof-6a']}/>
+          <mesh geometry={nodes['Hangar_Siding_green-3_0'].geometry} material={materials['Siding_green-3']} material-color={"black"} />
           <mesh geometry={nodes['Hangar_Proflist-1_0'].geometry} material={materials['Proflist-1']} material-color={props.roofColor} />
-          <mesh geometry={nodes['Hangar_20_30k8-2_0'].geometry} material={materials['20_30k8-2']}  />
+          <mesh geometry={nodes['Hangar_20_30k8-2_0'].geometry} material={materials['20_30k8-2']} />
         </group>
       </group>
     </group>
