@@ -69,6 +69,8 @@ const Main = () => {
                         <input
                             type="number"
                             id="simple-search"
+                            required
+                            name={"height"}
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                             placeholder="длина"/>
                     </div>
@@ -82,11 +84,9 @@ const Main = () => {
                         </div>
                         <input
                             type="number"
-                            name={"height"}
                             id="simple-search"
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                             placeholder="высота"
-                            required
                         />
                     </div>
                 </div>
