@@ -5,6 +5,9 @@ import {OrbitControls} from "@react-three/drei";
 import Selector from "./Select.jsx";
 import {countries, filler, metal, thickness} from "./selectValues.js";
 import Popup from "./Popup.jsx";
+import {RxWidth} from "react-icons/rx";
+import {AiOutlineColumnWidth} from "react-icons/ai";
+import {RiLineHeight} from "react-icons/ri";
 
 const Main = () => {
     const ref = useRef();
@@ -44,8 +47,7 @@ const Main = () => {
                     <label htmlFor="simple-search" className="sr-only">Search</label>
                     <div className="relative w-full">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <img src={"https://maxproduct.uz/wp-content/themes/maxproduct/calc/img/height.svg"}
-                                 alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
+                            <AiOutlineColumnWidth  />
                         </div>
                         <input
                             type="number"
@@ -62,8 +64,7 @@ const Main = () => {
                     <label htmlFor="simple-search" className="sr-only">Search</label>
                     <div className="relative w-full">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <img src={"https://maxproduct.uz/wp-content/themes/maxproduct/calc/img/height.svg"}
-                                 alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
+                            <RxWidth />
                         </div>
                         <input
                             type="number"
@@ -77,8 +78,7 @@ const Main = () => {
                     <label htmlFor="simple-search" className="sr-only">Search</label>
                     <div className="relative w-full">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <img src={"https://maxproduct.uz/wp-content/themes/maxproduct/calc/img/height.svg"}
-                                 alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
+                            <RiLineHeight />
                         </div>
                         <input
                             type="number"
