@@ -1,11 +1,11 @@
 import './App.css'
-import Hero from "./components/Hero.jsx";
+import Main from "./components/Main.jsx";
 
 function App() {
 
   return (
       <>
-          <Hero />
+          <Main />
       </>
   )
 }

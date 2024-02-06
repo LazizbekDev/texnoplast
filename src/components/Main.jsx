@@ -3,10 +3,10 @@ import {Canvas} from "@react-three/fiber";
 import {Model} from "./Scene.jsx";
 import {OrbitControls} from "@react-three/drei";
 import Selector from "./Select.jsx";
-import {countries, filler, metal, thickness} from "./openValues.js";
-import Contact from "./Contact.jsx";
+import {countries, filler, metal, thickness} from "./selectValues.js";
+import Popup from "./Popup.jsx";
 
-const Hero = () => {
+const Main = () => {
     const ref = useRef();
     const [roof,setRoof] = useState("#9d9d9d")
     const [walls,setWalls] = useState("#cbcbcb")
@@ -48,9 +48,9 @@ const Hero = () => {
                                  alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
                         </div>
                         <input
-                            autoFocus={true}
                             type="number"
                             id="simple-search"
+                            name={"width"}
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
                             placeholder="ширина"
                             required
@@ -66,14 +66,10 @@ const Hero = () => {
                                  alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
                         </div>
                         <input
-                            autoFocus={true}
                             type="number"
-                            name={"width"}
                             id="simple-search"
                             className="border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
-                            placeholder="длина"
-                            required
-                        />
+                            placeholder="длина"/>
                     </div>
                 </div>
 
@@ -85,7 +81,6 @@ const Hero = () => {
                                  alt="s-logo" className="selected-logo w-7 bg-[#DE5A03] mr-2"/>
                         </div>
                         <input
-                            autoFocus={true}
                             type="number"
                             name={"height"}
                             id="simple-search"
@@ -117,22 +112,27 @@ const Hero = () => {
                                 <button
                                     className={"bg-[#fffcf5] rounded-none shadow-md color-picker"}
                                     onClick={() => setRoof("#fffcf5")}
+                                    type={"button"}
                                 />
                                 <button
                                     className={"bg-[#96301c] shadow-md color-picker"}
                                     onClick={() => setRoof("#96301c")}
+                                    type={"button"}
                                 />
                                 <button
                                     className={"bg-[#2a8152] shadow-md color-picker"}
                                     onClick={() => setRoof("#2a8152")}
+                                    type={"button"}
                                 />
                                 <button
                                     className={"bg-[#595959] shadow-md color-picker"}
                                     onClick={() => setRoof("#9d9d9d")}
+                                    type={"button"}
                                 />
                                 <button
                                     className={"bg-[#4d3106] shadow-md color-picker"}
                                     onClick={() => setRoof("#935b0a")}
+                                    type={"button"}
                                 />
                             </div>
                         </div>
@@ -141,33 +141,33 @@ const Hero = () => {
                             <div className="grid grid-cols-5 gap-4">
                                 <button
                                     onClick={() => setWalls("#fff8a6")}
+                                    type={"button"}
                                     className={"color-picker bg-[#fff8a6] shadow-md"}/>
                                 <button
                                     onClick={() => setWalls("#cbcbcb")}
+                                    type={"button"}
                                     className={"color-picker bg-[#cbcbcb] shadow-md"}/>
                                 <button
                                     onClick={() => setWalls("#4295ff")}
+                                    type={"button"}
                                     className={"color-picker bg-[#4295ff] shadow-md"}/>
                                 <button
                                     onClick={() => setWalls("#915909")}
+                                    type={"button"}
                                     className={"color-picker bg-[#6b3e01] shadow-md"}/>
                                 <button
                                     onClick={() => setWalls("#bd1414")}
+                                    type={"button"}
                                     className={"color-picker bg-[#860202] shadow-md"}/>
                             </div>
                         </div>
                         <button
-                            type="button"
-                            onClick={() => setOpen(true)}
-                            className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-none text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">калькулятор
-                        </button>
-                        <button
                             type="submit"
                             onClick={() => setOpen(true)}
-                            className="focus:outline-none text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-yellow-300 font-medium rounded-none text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+                            className="inline-flex w-full justify-center rounded-none bg-[#DE5801] px-3 py-2 text-sm font-semibold shadow-md text-black hover:bg-yellow-500 sm:w-auto">
                             Считать цена
                         </button>
-                        <Contact
+                        <Popup
                             open={open}
                             square={square}
                             close={() => setOpen(false)}
@@ -179,4 +179,4 @@ const Hero = () => {
     );
 };
 
-export default Hero;
+export default Main;

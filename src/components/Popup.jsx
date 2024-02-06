@@ -2,7 +2,7 @@ import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {AiFillEdit} from "react-icons/ai";
 
-export default function Contact({open, close, square}) {
+export default function Popup({open, close, square}) {
     const cancelButtonRef = useRef(null)
 
     return (
@@ -42,6 +42,7 @@ export default function Contact({open, close, square}) {
                                                 <img
                                                     src={"https://static.wixstatic.com/media/0a5b98_a0f55dd2be9f4f639003334e64a37923~mv2.png/v1/fill/w_328,h_75,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/96affd68-1e0b-43ce-a71f-5d93823de192.png"}
                                                     alt={"logo"}
+                                                    className={"md:ml-0 mx-auto"}
                                                     width={170}
                                                 />
                                             </Dialog.Title>
