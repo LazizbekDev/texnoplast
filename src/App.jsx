@@ -1,12 +1,12 @@
 import './App.css'
-import Main from "./components/Main.jsx";
+import {FaHandMiddleFinger} from "react-icons/fa";
 
 function App() {
 
   return (
-      <>
-          <Main />
-      </>
+      <div style={{height: "80vh", display: "grid", placeItems: "center"}}>
+          <FaHandMiddleFinger size={"10rem"}  />
+      </div>
   )
 }
 
